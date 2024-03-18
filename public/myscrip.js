@@ -1,6 +1,5 @@
 
   window.addEventListener("offline", () =>{
-   
     Swal.fire('You went offline!').then(function() {
       window.location.reload();
   });
@@ -11,34 +10,21 @@
 window.addEventListener("online",  () =>{
   Swal.fire('You are back online!').then(function() {
     window.location.reload();
+}); 
 });
 
-  
-});
 
-
-if(navigator.onLine){
-  
+if(navigator.onLine){ 
   function countBmi(){  
-
-   
     var height = document.getElementById("height").value; 
     var weight = document.getElementById("weight").value;
     var msg = document.getElementById("message");
-  
-  
+ 
     if(height == "" || weight == ""){
-  
-  
-      Swal.fire('Please provide your height and weight!');
-      
-     
+      Swal.fire('Please provide your height and weight!');    
     }
   
     else if( (height > 0  && height <= 999) && (weight > 0 && weight <= 999 )){
-  
-      
-  
       var bmi = (weight/((height*height)/10000)).toFixed(2);
       var result = bmi; 
       document.getElementById("bmiValue").innerHTML = result;  
@@ -49,32 +35,22 @@ if(navigator.onLine){
       }
       else if(result >= 18.6 && result <=25){
          msg.value= "Hey! You are healthy";
-         msg.style.color="#82E0AA  ";
-         
+         msg.style.color="#82E0AA  ";       
       }
       else{
         msg.value="You are Over Weight ";
         msg.style.color="#FFA07A ";
       }
       
-      
       document.getElementById("message").innerHTML =msg.value;
     }
     else{
-     
-      
-     
       Swal.fire({
         icon: 'error',
-        title: 'Invalid details',
-      
+        title: 'Invalid details',     
       });
       
-    }
-    
-  
-    
-  
+    }    
   }  
   
    function giveinfo(){
@@ -87,15 +63,9 @@ if(navigator.onLine){
     )
   
   }
-  
-  
-  
   function wishVistor(){
-  
-  
+
     var Msg = document.getElementById("wish");
-   
-  
     var day = new Date();
     var hr = day.getHours();
     if (hr >= 0 && hr < 12) {
@@ -122,33 +92,17 @@ if(navigator.onLine){
       Msg.style.color= "White";
     }
   
-     document.getElementById("wish").innerHTML = Msg.value;
-    
-    
+     document.getElementById("wish").innerHTML = Msg.value; 
   
   }
-  
-
 }
 
  else{
   function wishVistor(){
-  
-  
     var Msg = document.getElementById("wish");
-   
-  
-    
       Msg.value="You went Offline";
       Msg.style.backgroundColor="red";
       Msg.style.color= "White";
-    
-  
      document.getElementById("wish").innerHTML = Msg.value;
-    
-    
-  
   }
-  
-
  }
